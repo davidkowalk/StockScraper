@@ -1,5 +1,16 @@
 import alphavantage as api
 
+def main():
+
+    with open("config.json") as f:
+        config = json.load(json_file)
+
+    key = config["key"]
+    symbol = input("Symbol: ")
+
+    quote, overview = api.get_data(key, symbol)
+    dict = generate_dict(quote, overview)
+
 
 def get_data(key, symbol):
     """
