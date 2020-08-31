@@ -86,6 +86,8 @@ def generate_dict(quote, overview):
     # P/E Ratio
     # Currency
     try:
+        dict["symbol"] = overview["Symbol"]
+        dict["exchange"] = overview["Exchange"]
         dict["sector"] = overview["Sector"]
         dict["beta"] = overview["Beta"]
         dict["market_cap"] = overview["MarketCapitalization"]
@@ -108,7 +110,7 @@ def generate_dict(quote, overview):
         quote = quote["Global Quote"]
         dict["price"] = quote["05. price"]
         dict["n_shares"] = floor(10000/float(dict["price"]))
-        
+
     except Exception as e:
         print("ERROR IN DICT!")
         print(e)
